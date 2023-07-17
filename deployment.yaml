@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: practice-spring
+  labels:
+    app: practice-spring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: practice-spring
+  template:
+    metadata:
+      labels:
+        app: practice-spring
+    spec:
+      containers:
+        - name: practice-spring
+          image: quay.io/bishoy_adly/practice-spring
+          ports:
+            - containerPort: 8080
