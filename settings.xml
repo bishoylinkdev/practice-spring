@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<settings xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <localRepository>C:/.m2</localRepository>
+
+  <pluginGroups>
+
+    <pluginGroup>com.avaya.maven.plugins</pluginGroup>
+
+    <pluginGroup>com.google.cloud.tools</pluginGroup>
+
+    <pluginGroup>com.spotify</pluginGroup>
+
+  </pluginGroups>
+
+  <servers>
+    <server>
+      <id>quay.io</id>
+      <username>bishoy_adly</username>
+      <password>9QgXDlx9aek9jKModXdXjTWS/j7p81B9dYW9kiMVdTdNBlcnfuukU2GWj8G0dvYMAZHjkk0WYk6GGe2l3GLP1A==</password>
+    </server>
+    <server>
+      <id>registry.hub.docker.com</id>
+      <username>bishoylinkdev</username>
+      <password>dckr_pat_SE0qosYiv78x2lvCSn99CLxfeo4</password>
+    </server>
+  </servers>
+
+  <mirrors>
+  </mirrors>
+
+  <!-- Activate repos by default so you don't have to add them to the pom.xml -->
+
+  <activeProfiles>
+    <activeProfile>redhat-ga-repository</activeProfile>
+  </activeProfiles>
+
+  <profiles>
+    <profile>
+      <id>redhat-ga-repository</id>
+      <repositories>
+        <repository>
+          <id>redhat-ga-repository</id>
+          <name>Red Hat GA repository</name>
+          <url>http://maven.repository.redhat.com/ga/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>redhat-ga-repository</id>
+          <name>Red Hat GA repository</name>
+          <url>http://maven.repository.redhat.com/ga/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+</settings>

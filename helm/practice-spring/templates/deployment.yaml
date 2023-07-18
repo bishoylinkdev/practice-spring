@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: practice-spring
+  labels:
+    app: practice-spring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: practice-spring
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: practice-spring
+    spec:
+      containers:
+        - name: practice-spring
+          image: quay.io/bishoy_adly/practice-spring
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: "/home/practice-spring-app"
+              name: practice-spring-pv-storage
+      volumes:
+        - name: practice-spring-pv-storage
+          persistentVolumeClaim:
+            claimName: claim-devworkspace

@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: deploy-service
+spec:
+  workspaces:
+    - description: The workspace containing helm charts.
+      name: source
+    - description: >-
+        The workspace containing helm charts.
+  steps:
+    - name: deploy-service
+      image: registry.access.redhat.com/openshift3/ose-cli:v3.11.784-1.gc4590b1
+      script: |
+        #!/bin/sh
+        kubectl apply -f $(workspaces.source.path)/helm/practice-spring/templates/deployment.yaml
+        kubectl apply -f $(workspaces.source.path)/helm/practice-spring/templates/service.yaml
