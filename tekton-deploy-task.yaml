@@ -10,9 +10,6 @@ spec:
     - name: deploy-service
       image: registry.access.redhat.com/openshift3/ose-cli:v3.11.784-1.gc4590b1
       script: |
-        #!/bin/sh
-        pwd \
-        cd $(workspaces.source.path) \
-        ls \
-        kubectl apply -f $(workspaces.source.path)/helm/practice-spring/templates/deployment.yaml \
-        kubectl apply -f $(workspaces.source.path)/helm/practice-spring/templates/service.yaml
+        kubectl apply -f helm/practice-spring/templates/deployment.yaml
+        kubectl apply -f helm/practice-spring/templates/service.yaml
+      workingDir: $(workspaces.source.path)
